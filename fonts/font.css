@@ -1,17 +1,17 @@
 @font-face {
-  font-family: 'ProximaNova-Bold';
-  src: url('ProximaNova-Bold.svg#ProximaNova-Bold') format('svg'),
-       url('ProximaNova-Bold.ttf') format('truetype'),
-       url('ProximaNova-Bold.woff') format('woff');
+  font-family: 'ProximaNova-Extrabld';
+  src: url('ProximaNova-Extrabld.svg#ProximaNova-Extrabld') format('svg'),
+       url('ProximaNova-Extrabld.ttf') format('truetype'),
+       url('ProximaNova-Extrabld.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'proxima-nova-bold';
-  src: url('proxima-nova-bold.eot');
-  src: url('proxima-nova-bold.eot?#iefix') format('embedded-opentype'),
-       url('proxima-nova-bold.woff2') format('woff2');
+  font-family: 'ofont.ru_Proxima Nova';
+  src: url('ofont.ru_Proxima Nova.eot');
+  src: url('ofont.ru_Proxima Nova.eot?#iefix') format('embedded-opentype'),
+       url('ofont.ru_Proxima Nova.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
