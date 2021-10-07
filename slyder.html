@@ -10,7 +10,12 @@
 
 
 <body >
-<div class="wrap" style=" overflow: hidden;">
+<div class="main " style="display: flex; justify-content: center; position: relative">
+<div class="arrow_cont_left" style="position: relative; left: 0 ;z-index: 1;margin: auto; padding-left: 1% " >
+    <div class="arrow_left" style="width: 20px; height: 20px; border-bottom: solid 2px red;border-right: solid 2px red; transform: rotate(135deg) "></div>
+</div>
+
+<div class="wrap" style=" overflow: hidden; width: 100%">
 <div class="slyder" style="display: flex ; position: relative" >
 <div class="electro-price" style="width: 100%; flex-shrink: 0">
     <div class="electro-price__cont container">
@@ -28,7 +33,7 @@
         </div>
     </div>
 </div>
-<div class="advantages" style="width: 100%; flex-shrink: 0">
+<div class="advantages" style="width: 100%; flex-shrink: 0; z-index: 1">
     <div class="advantages__cont container">
         <img class="advantages__cont__picture" src="img/telephone.png">
         <div class="advantages__cont__top-text">
@@ -41,6 +46,10 @@
     </div>
 </div>
 </div>
+</div>
+    <div class="arrow_cont_right" style="position: relative; right: 0 ;z-index: 1;margin: auto; padding-right: 1% " >
+        <div class="arrow_right" style="width: 20px; height: 20px; border-bottom: solid 2px red;border-right: solid 2px red; transform: rotate(-45deg) "></div>
+    </div>
 </div>
             <input name="radio" type="radio" checked="checked" id="rad0">
             <input  name="radio" type="radio" id="rad1">
@@ -55,11 +64,15 @@
     let id_text="rad";
     let id;
     let last_check;
+    let left_arrow=document.querySelector(".arrow_cont_left");
+
+    let right_arrow=document.querySelector(".arrow_cont_right");
+
     let move=0;
     let buttons=new Array(count_b-1);
     slyder.style.transitionDuration="2s";
     slyder.style.transitionProperty="left";
-    slyder.style.left=0;
+    slyder.style.left="0%";
     while (i<count_b){
         id =id_text+i;
         buttons[i]=document.getElementById(id);
@@ -69,6 +82,7 @@
 
         buttons[i].addEventListener("change", function (){
             move+=last_check-this.id.replace(/[a-z]/gi, '');
+            console.log(last_check)
 
             last_check=this.id.replace(/[a-z]/gi, '');
 
@@ -80,7 +94,36 @@
         i+=1;
 
     }
+    left_arrow.addEventListener("click", function (){
+        if( slyder.style.left!="0%"){
+            for (i=0;  i<2; i++){
+                if  (buttons[i].checked){
+                    console.log(buttons[i])
+                    buttons[i-1].checked=true;
+                    last_check=buttons[i-1].id.replace(/[a-z]/gi, '');
+                }
+            }
+            move+=1;
+            slyder.style.left=move*100+"%";
+            console.log(last_check)
 
+        }
+    });
+    right_arrow.addEventListener("click", function (){
+        if( slyder.style.left!=(count_b-1)*(-100)+"%"){
+            for (i=0;  i<1; i++){
+                if  (buttons[i].checked){
+                    buttons[i+1].checked=true;
+                    last_check=buttons[i+1].id.replace(/[a-z]/gi, '');
+                }
+            }
+            move-=1;
+            slyder.style.left=move*100+"%";
+            console.log(last_check)
 
+        }
+    });
+
+console.log()
 </script>
 </html>
